@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="system">
+      <UniqueIdentifier>{22dd8095-74f9-46df-81a1-36675a040b1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{0fd4c312-10a8-4426-8312-93649af60bcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{a3ed8290-2d11-4983-9240-31cb7316e857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{df084916-e0f2-461c-b166-d27b66bcb1cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stage">
+      <UniqueIdentifier>{ec5f84eb-226c-4421-a424-be0b061860d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stage\Parts">
+      <UniqueIdentifier>{a15a7260-2d6c-4a62-aea3-db5fdd25d9d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows">
+      <UniqueIdentifier>{d0b9c04a-7030-486b-bb60-bd9b85c6c4c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stage\Stage_1">
+      <UniqueIdentifier>{6ac483c1-00fc-4041-a5ce-f139a19f550e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="system\system.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargeShot.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bound.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="RockOn.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpBoard.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_1.cpp">
+      <Filter>Stage\Stage_1</Filter>
+    </ClCompile>
+    <ClCompile Include="HoneyCombBlock.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Drone.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerCharge.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Nut.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Volt.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SignBoard.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="RockOnObject.cpp" />
+    <ClCompile Include="Turret.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Energy.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Goal.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeLimit.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLight.cpp" />
+    <ClCompile Include="First.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="BreakBox.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedUpRail.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_1_Stage.cpp">
+      <Filter>Stage\Stage_1</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Truck.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipe.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="Duct.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="ReSpawnPoint.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Length.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_1_Wall.cpp">
+      <Filter>Stage\Stage_1</Filter>
+    </ClCompile>
+    <ClCompile Include="Bumper.cpp">
+      <Filter>Stage\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClear.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="system\system.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="ChargeShot.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Bound.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="RockOn.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpBoard.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_1.h">
+      <Filter>Stage\Stage_1</Filter>
+    </ClInclude>
+    <ClInclude Include="HoneyCombBlock.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Drone.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerCharge.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Nut.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Volt.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SignBoard.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="RockOnObject.h" />
+    <ClInclude Include="Turret.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Energy.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Goal.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeLimit.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLight.h" />
+    <ClInclude Include="First.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="BreakBox.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedUpRail.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_1_Stage.h">
+      <Filter>Stage\Stage_1</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Truck.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipe.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="Duct.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="ReSpawnPoint.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Length.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_1_Wall.h">
+      <Filter>Stage\Stage_1</Filter>
+    </ClInclude>
+    <ClInclude Include="Bumper.h">
+      <Filter>Stage\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClear.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
