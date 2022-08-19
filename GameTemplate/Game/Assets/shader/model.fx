@@ -85,13 +85,12 @@ struct SPSIn
     float3 normal : NORMAL; //法線。
     float2 uv : TEXCOORD0; //uv座標。
     float3 worldPos : TEXCOORD1;
-    
     float3 normalInView : TEXCOORD2; //カメラ空間の法線
-    
-    float4 posInLVP : TEXCOORD3; // ライトビュースクリーン空間でのピクセルの座標
-
+    float4 posInLVP : TEXCOORD3; // ライトビュースクリーン空間でのピクセルの座標1
     float depthInView : TEXCOORD4;
-    float4 velocityMap : TEXCOORD5;
+    //float4 velocityMap : TEXCOORD5;
+    float4 prevPosInProj : TEXCOORD5;
+    float4 posInProj : TEXCOORD6;
 };
 
 struct SPSOut
@@ -165,14 +164,18 @@ SPSIn VSMainCore(SVSIn vsIn, uniform bool hasSkin)
     {
         m = mWorld;
     }
-    psIn.velocityMap = DrawVelocityMap(vsIn, psIn);
+   // psIn.velocityMap = DrawVelocityMap(vsIn, psIn);
     
     psIn.pos = mul(m, vsIn.pos);
     psIn.worldPos = psIn.pos;
     psIn.pos = mul(mView, psIn.pos);
     psIn.depthInView = psIn.pos.z; //Z値を入れる
     psIn.pos = mul(mProj, psIn.pos);
-
+    psIn.posInProj = psIn.pos;
+    
+    psIn.prevPosInProj = mul(mPrevWorld, vsIn.pos);
+    psIn.prevPosInProj = mul(mPrevView, psIn.prevPosInProj);
+    psIn.prevPosInProj = mul(mPrevProj, psIn.prevPosInProj);
 
 	//頂点法線をピクセルシェーダーに渡す。
     psIn.normal = normalize(mul(m, vsIn.normal)); //法線を回転させる。
@@ -404,14 +407,23 @@ float4 DrawVelocityMap(SVSIn vsIn, SPSIn psIn)
     
     float4 now_pos, prev_pos;
       
-    float4x4 nowWV = mul(mWorld, mView);
-    float4x4 nowWVP = mul(nowWV, mProj);
+    /*float4x4 nowWV = mul(mView, mWorld);
+    float4x4 nowWVP = mul(mProj, nowWV);
      
-    float4x4 prevWV = mul(mPrevWorld, mPrevView);
-    float4x4 prevWVP = mul(prevWV, mPrevProj);
+    float4x4 prevWV = mul(mPrevView, mPrevWorld);
+    float4x4 prevWVP = mul(mPrevProj, prevWV);
         
-    now_pos = mul(vsIn.pos, nowWVP);
-    prev_pos = mul(vsIn.pos, prevWVP);
+    now_pos = mul(nowWVP, vsIn.pos);
+    prev_pos = mul(prevWVP, vsIn.pos);
+    */
+    
+    now_pos = mul(mWorld, vsIn.pos);
+    now_pos = mul(mView, now_pos);
+    now_pos = mul(mProj, now_pos);
+    
+    prev_pos = mul(mPrevWorld, vsIn.pos);
+    prev_pos = mul(mPrevView, prev_pos);
+    prev_pos = mul(mPrevProj, prev_pos);
     
     float2 velocity = now_pos.xy / now_pos.w - prev_pos.xy / prev_pos.w;
     
@@ -427,7 +439,7 @@ float4 DrawVelocityMap(SVSIn vsIn, SPSIn psIn)
 /// </summary>
 float4 PSMainCore(SPSIn psIn, uniform bool shadowreceive)
 {
-
+    
     //ディレクションライトによるライティングを計算する
     float3 directionLig = CalcLigFromDirectionLight(psIn);
 	
@@ -498,10 +510,14 @@ SPSOut PSMain(SPSIn psIn)
 
     psOut.depth = psIn.depthInView;
     
-    psOut.velocity = psIn.velocityMap;
+    float2 vel = psIn.posInProj.xy / psIn.posInProj.w - psIn.prevPosInProj.xy / psIn.prevPosInProj.w;
+    float velocityz = psIn.posInProj.z / psIn.posInProj.w - psIn.prevPosInProj.z / psIn.prevPosInProj.w;
+    float4 velo = { vel, velocityz, 0 };
+    psOut.velocity = velo;
+    
     return psOut;
 }
-SPSOut PSMainShadowReciever(SPSIn psIn)
+    SPSOut PSMainShadowReciever(SPSIn psIn)
 {
     SPSOut psOut;
 
@@ -509,6 +525,10 @@ SPSOut PSMainShadowReciever(SPSIn psIn)
 
     psOut.depth = psIn.depthInView;
     
-    psOut.velocity = psIn.velocityMap;
+    float2 vel = psIn.posInProj.xy / psIn.posInProj.w - psIn.prevPosInProj.xy / psIn.prevPosInProj.w;
+    float velocityz = psIn.posInProj.z / psIn.posInProj.w - psIn.prevPosInProj.z / psIn.prevPosInProj.w;
+    float4 velo = { vel, velocityz, 0 };
+    psOut.velocity = velo;
+    
     return psOut;
 }
